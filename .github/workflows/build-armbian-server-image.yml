@@ -214,6 +214,7 @@ on:
         type: choice
         options:
           - ophub/kernel
+          - bingkuomiao/kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -350,7 +351,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Rebuild Armbian
-        uses: ophub/amlogic-s9xxx-armbian@main
+        uses: bingkuomiao/amlogic-s9xxx-armbian@main
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
         with:
           build_target: armbian
